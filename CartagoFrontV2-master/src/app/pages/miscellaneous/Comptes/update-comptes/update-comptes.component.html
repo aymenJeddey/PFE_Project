@@ -1,0 +1,260 @@
+<nb-card>
+  <nb-card-header>
+    <button nbButton ghost>
+      <nb-icon
+        icon="arrow-back-outline"
+        routerLink="/pages/miscellaneous/Comptes"
+        style="margin-bottom: 15px"
+        style="margin-left: 10px"
+      ></nb-icon>
+    </button>
+    Demande de Création Compte</nb-card-header
+  >
+  <hr />
+  <nb-card-body>
+    <form [formGroup]="registerForm">
+      <div class="form-row">
+        <div class="form-group col">
+          <nb-checkbox class="form-control" formControlName="cloture"
+            >Cloture</nb-checkbox
+          >
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Rib</label>
+          <input
+            fullWidth
+            type="text"
+            class="form-control"
+            formControlName="rib"
+            name="rib"
+            fullWidth
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Date cloture</label>
+          <input
+            [nbDatepicker]="datepicker"
+            class="form-control"
+            formControlName="dateCloture"
+          />
+          <nb-datepicker #datepicker></nb-datepicker>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Description </label>
+          <input
+            fullWidth
+            type="text"
+            class="form-control"
+            formControlName="description"
+            name="description"
+            fullWidth
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Solde </label>
+          <input
+            fullWidth
+            type="number"
+            class="form-control"
+            formControlName="solde"
+            name="solde"
+            fullWidth
+            readonly
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Num Compte </label>
+          <input
+            fullWidth
+            type="text"
+            class="form-control"
+            formControlName="numCpt"
+            name="numCpt"
+            fullWidth
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <nb-checkbox class="form-control" formControlName="active"
+            >Active</nb-checkbox
+          >
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Type Compte</label>
+          <nb-select
+            name="typeAccount"
+            class="form-control-file"
+            fullWidth
+            formControlName="typeAccount"
+          >
+            <nb-option value="compteCourant">Courant</nb-option>
+            <nb-option value="compteEpagne">Epargne</nb-option>
+          </nb-select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Agence </label>
+          <input
+            fullWidth
+            type="text"
+            class="form-control"
+            formControlName="agency"
+            name="agency"
+            fullWidth
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Devise </label>
+          <input
+            fullWidth
+            type="text"
+            class="form-control"
+            formControlName="currency"
+            name="currency"
+            fullWidth
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Client </label>
+          <input
+            fullWidth
+            type="text"
+            class="form-control"
+            formControlName="tier"
+            name="tier"
+            fullWidth
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Type Compte</label>
+          <nb-select fullWidth (selectedChange)="changeTypeClient($event)">
+            <nb-option value="Person">Client</nb-option>
+            <nb-option value="Bank">Banque</nb-option>
+          </nb-select>
+        </div>
+      </div>
+
+      <nb-card>
+        <nb-tabset>
+          <nb-tab tabTitle="Agence">
+            <div class="row">
+              <div class="col-md-12">
+                <nb-card>
+                  <nb-card-body class="cursor">
+                    <ng2-smart-table
+                      [settings]="settings1"
+                      [source]="agence"
+                      (custom)="onCustomAction1($event)"
+                    >
+                    </ng2-smart-table>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+          </nb-tab>
+
+          <nb-tab tabTitle="Devise">
+            <div class="row">
+              <div class="col-md-12">
+                <nb-card>
+                  <nb-card-body class="cursor">
+                    <ng2-smart-table
+                      [settings]="settings3"
+                      [source]="devise"
+                      (custom)="onCustomAction3($event)"
+                    >
+                    </ng2-smart-table>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+          </nb-tab>
+
+          <nb-tab tabTitle="Client" *ngIf="typeClient == 'Person'">
+            <div class="row">
+              <div class="col-md-12">
+                <nb-card>
+                  <nb-card-body class="cursor">
+                    <ng2-smart-table
+                      [settings]="settings"
+                      [source]="tier"
+                      (custom)="onCustomAction($event)"
+                    >
+                    </ng2-smart-table>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+          </nb-tab>
+
+          <nb-tab tabTitle="Banque" *ngIf="typeClient == 'Bank'">
+            <div class="row">
+              <div class="col-md-12">
+                <nb-card>
+                  <nb-card-body class="cursor">
+                    <ng2-smart-table
+                      [settings]="settings2"
+                      [source]="bank"
+                      (custom)="onCustomAction($event)"
+                    >
+                    </ng2-smart-table>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+          </nb-tab>
+        </nb-tabset>
+      </nb-card>
+
+      <hr />
+      <button
+        outline
+        nbButton
+        status="primary"
+        size="small"
+        (click)="onSubmit(registerForm)"
+      >
+        Enregistrer
+      </button>
+      <button
+        outline
+        style="margin-left: 10px"
+        class="btn btn-secondary"
+        nbButton
+        type="reset"
+        size="small"
+        (click)="onReset()"
+      >
+        Annuler
+      </button>
+    </form>
+  </nb-card-body>
+</nb-card>

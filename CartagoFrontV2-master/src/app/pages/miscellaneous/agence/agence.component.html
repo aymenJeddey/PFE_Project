@@ -1,0 +1,21 @@
+<nb-card>
+
+  <nb-card-body>
+    <h6 align="center" >Agence</h6>
+    <button type="button" outline nbButton status="basic" size="small" style="margin-left: 10px" style="margin-bottom: 15px" routerLink="/pages/miscellaneous/AddAgence">
+      Nouveau
+    </button>
+
+    <div class="row">
+      <div class="col-md-12">
+        <nb-card>
+          <nb-card-body class="cursor">
+            <ng2-smart-table   [settings]="settings" [source]="agence"  (edit)="onEditRowSelect($event)" (delete)="deleteData($event)">
+
+            </ng2-smart-table>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

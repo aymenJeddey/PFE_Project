@@ -1,0 +1,564 @@
+<!-- <nb-card >
+  <nb-card-header>Validation</nb-card-header>
+  <nb-card-body>
+    <nb-tabset  >
+      <nb-tab tabTitle="Compte détails">
+    <form [formGroup]="form"  >
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label"> </label>
+          <nb-checkbox  class="form-control" formControlName = "cloture">Cloture</nb-checkbox>
+        </div>
+
+
+
+        <div class="form-group col">
+          <label class="label">Rib</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "rib"  name="rib" fullWidth>
+        </div>
+
+
+        <div class="form-group col">
+          <label class="label">Date cloture</label>
+          <input  [nbDatepicker]="datepicker" class="form-control" formControlName = "dateCloture">
+          <nb-datepicker #datepicker></nb-datepicker>
+        </div>
+
+
+        <div class="form-group col">
+          <label class="label">Description </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "description"  name="description" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Solde </label>
+          <input  fullWidth type="number"  class="form-control" formControlName = "solde"  name="solde" fullWidth>
+        </div>
+
+
+
+        <div class="form-group col">
+          <label class="label">Num Compte </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "numCpt"  name="numCpt" fullWidth>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <nb-checkbox  class="form-control" formControlName = "active">Active</nb-checkbox>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Type Compte</label>
+          <nb-select   name="typeAccount" class="form-control-file" fullWidth formControlName = "typeAccount">
+            <nb-option value="compteCourant" >Courant</nb-option>
+            <nb-option value="compteEpagne" >Epargne</nb-option>
+          </nb-select>
+        </div>
+      </div>
+
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Agence </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "agency"  name="agency" fullWidth>
+        </div>
+      </div>
+
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Devise </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "currency"  name="currency" fullWidth>
+        </div>
+      </div>
+
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Client </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "tier"  name="tier" fullWidth>
+        </div>
+      </div>
+    </form>
+  </nb-tab>
+  <nb-tab  tabTitle="Tier détails">
+
+  </nb-tab>
+  </nb-tabset>
+  </nb-card-body>
+  <nb-card-footer>
+    Voulez-vous validé ce compte ?
+    <div>
+
+        <button nbButton status="info">Valider</button>
+
+
+        <button nbButton status="danger">Refuser</button>
+
+
+       <button nbButton>Fermer</button>
+
+
+
+
+  </div>
+  </nb-card-footer>
+</nb-card>
+
+ -->
+<nb-card>
+  <nb-card-header>Validation</nb-card-header>
+  <nb-card-body>
+    <nb-tabset>
+      <nb-tab tabTitle="Compte détails">
+        <form [formGroup]="form1">
+          <div class="form-row">
+            <div class="form-group col">
+              <label class="label"> </label>
+              <nb-checkbox
+                class="form-control"
+                formControlName="cloture"
+                onclick="return false;"
+                >Cloture</nb-checkbox
+              >
+            </div>
+
+            <div class="form-group col">
+              <label class="label">Rib</label>
+              <input
+                fullWidth
+                type="text"
+                class="form-control"
+                formControlName="rib"
+                name="rib"
+                fullWidth
+                readonly
+              />
+            </div>
+
+            <div class="form-group col">
+              <label class="label">Date cloture</label>
+              <input
+                [nbDatepicker]="datepicker"
+                class="form-control"
+                formControlName="dateCloture"
+                readonly
+              />
+              <nb-datepicker #datepicker></nb-datepicker>
+            </div>
+
+            <div class="form-group col">
+              <label class="label">Description </label>
+              <input
+                fullWidth
+                type="text"
+                class="form-control"
+                formControlName="description"
+                name="description"
+                fullWidth
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-row"></div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label class="label">Solde </label>
+              <input
+                fullWidth
+                type="number"
+                class="form-control"
+                formControlName="solde"
+                name="solde"
+                fullWidth
+                readonly
+              />
+            </div>
+
+            <div class="form-group col">
+              <label class="label">Num Compte </label>
+              <input
+                fullWidth
+                type="text"
+                class="form-control"
+                formControlName="numCpt"
+                name="numCpt"
+                fullWidth
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col">
+              <nb-checkbox
+                class="form-control"
+                formControlName="active"
+                onclick="return false;"
+                >Active</nb-checkbox
+              >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label class="label">Type Compte</label>
+              <input
+                fullWidth
+                type="text"
+                class="form-control"
+                formControlName="typeAccount"
+                name="typeAccount"
+                fullWidth
+                readonly
+              />
+            </div>
+
+            <div class="form-group col">
+              <label class="label">Agence </label>
+              <input
+                fullWidth
+                type="text"
+                class="form-control"
+                formControlName="agency"
+                name="agency"
+                fullWidth
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col">
+              <label class="label">Devise </label>
+              <input
+                fullWidth
+                type="text"
+                class="form-control"
+                formControlName="currency"
+                name="currency"
+                fullWidth
+                readonly
+              />
+            </div>
+
+            <div class="form-group col">
+              <label class="label">Client </label>
+              <input
+                fullWidth
+                type="text"
+                class="form-control"
+                formControlName="tier"
+                name="tier"
+                fullWidth
+                readonly
+              />
+            </div>
+          </div>
+        </form>
+      </nb-tab>
+      <nb-tab tabTitle="Tier détails">
+        <nb-card>
+          <nb-card-header>
+            <button nbButton ghost>
+              <nb-icon
+                icon="arrow-back-outline"
+                routerLink="/pages/miscellaneous/Client"
+                style="margin-bottom: 15px"
+                style="margin-left: 10px"
+              ></nb-icon>
+            </button>
+            Ajouter Personne</nb-card-header
+          >
+          <hr />
+          <nb-card-body>
+            <form [formGroup]="registerForm">
+              <div class="form-row">
+                <div class="form-group col">
+                  <label class="label">Libellé Court </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="libcou"
+                    name="libcou"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="label">Libellé Long </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="liblon"
+                    name="liblon"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="label"> </label>
+
+                  <nb-checkbox
+                    class="form-control"
+                    formControlName="resident"
+                    onclick="return false;"
+                    >Resident</nb-checkbox
+                  >
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label class="label">Prénom </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="firstName"
+                    name="firstName"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="label">Nom </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="lastName"
+                    name="lastName"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="label">Sexe</label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="gender"
+                    name="gender"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label class="label">Date de naissance</label>
+                  <input
+                    [nbDatepicker]="datepicker"
+                    class="form-control"
+                    formControlName="birthday"
+                    readonly
+                  />
+                  <nb-datepicker #datepicker></nb-datepicker>
+                </div>
+
+                <div class="form-group col">
+                  <label class="label">Groupe</label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="group"
+                    name="group"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="label">Role</label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="role"
+                    name="role"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+              </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </nb-tab>
+      <nb-tab tabTitle="Contact tier">
+        <nb-card>
+          <nb-card-header> Contact </nb-card-header>
+          <hr />
+          <nb-card-body>
+            <form [formGroup]="formContact">
+              <input
+                fullWidth
+                type="hidden"
+                class="form-control"
+                formControlName="id"
+                fullWidth
+                readonly
+              />
+
+              <div class="form-row">
+                <div class="form-group col">
+                  <label class="adresse">Adresse </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="translatedAddress"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="adresse">Téléphone </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="phone"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="adresse">Mobile </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="mobile"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col">
+                  <label class="adresse">Fax </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="fax"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="adresse">Email </label>
+                  <input
+                    fullWidth
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                    fullWidth
+                    placeholder="pat@example.com"
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="adresse">Code Postal </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="zipCode"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col">
+                  <label class="adresse">Commentaire </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="freeText"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="adresse">Fonction contact </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="contactFunction"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="adresse">Nom contact </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="contactName"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col">
+                  <label class="label">Language</label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="language"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+
+                <div class="form-group col">
+                  <label class="adresse">Formule Politesse </label>
+                  <input
+                    fullWidth
+                    type="text"
+                    class="form-control"
+                    formControlName="formulePolitesse"
+                    fullWidth
+                    readonly
+                  />
+                </div>
+              </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </nb-tab>
+    </nb-tabset>
+  </nb-card-body>
+  <nb-card-footer>
+    Voulez-vous validé ce compte ?
+    <div>
+      <button nbButton status="info" (click)="valider()">Valider</button>
+      <button nbButton status="danger" (click)="refuser()">Refuser</button>
+      <button nbButton (click)="onReset()">Fermer</button>
+    </div>
+  </nb-card-footer>
+</nb-card>

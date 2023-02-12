@@ -1,0 +1,44 @@
+<nb-card >
+
+  <nb-card-header> <button nbButton ghost ><nb-icon icon="arrow-back-outline" routerLink="/pages/miscellaneous/Agence" style="margin-bottom: 15px" style="margin-left: 10px"></nb-icon></button>
+  </nb-card-header><hr>
+  <nb-card-body>
+    <form  [formGroup]="formAgence" >
+      <div class="form-row" >
+
+        <div class="form-group col">
+          <label class="label">Libellé Court</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "libcou"  name="libcou" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Libellé Long</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "liblon"  name="liblon" fullWidth>
+        </div>
+      </div>
+
+
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Nombre des employés </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "nbPerson"  name="nbPerson" fullWidth>
+        </div>
+      </div>
+
+
+
+        <hr>
+        <button outline nbButton status="primary" size="small"  (click)="onSubmit(formAgence.value)" >Enregistrer</button>
+        <button outline style="margin-left: 10px" class="btn btn-secondary" nbButton type="reset" size="small" (click)="onReset()">Annuler</button>
+
+
+    </form>
+  </nb-card-body>
+  </nb-card>
+
+
+
+
+
+

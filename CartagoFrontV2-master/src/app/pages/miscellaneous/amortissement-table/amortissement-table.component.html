@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header>Table d'amortissement</nb-card-header>
+      <nb-card-body>
+        <ng2-smart-table
+          [settings]="settings"
+          [source]="amortissement"
+          id="table-data"
+        >
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-body>
+        <button nbButton status="basic" ghost (click)="onReset()">
+          Annuler
+        </button>
+        <button nbButton status="primary" (click)="printReport()">
+          Exporter
+        </button>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

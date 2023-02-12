@@ -1,0 +1,35 @@
+<nb-card >
+
+  <nb-card-header><div><button nbButton ghost ><nb-icon icon="arrow-back-outline" routerLink="/pages/miscellaneous/UpdateCalendar" style="margin-bottom: 15px" style="margin-left: 10px"></nb-icon></button></div>
+  </nb-card-header><hr>
+ <nb-card-body>
+   <form  [formGroup]="registerForm1"   >
+    <div class="form-row" >
+      <div class="form-group col">
+        <label class="label">Date</label>
+        <input  [nbDatepicker]="datepicker" class="form-control" formControlName = "date">
+        <nb-datepicker #datepicker></nb-datepicker>
+      </div>
+    </div>
+    <div class="form-row" >
+      <div class="form-group col">
+        <label class="label"> Description </label>
+        <input  fullWidth type="text"  class="form-control" formControlName = "description"  name="description" >
+      </div>
+    </div>
+    <div class="form-row" >
+      <div class="form-group col">
+        <label class="label">  </label>
+        <input  fullWidth type="hidden"  class="form-control" formControlName = "id"  name="id" >
+      </div>
+    </div>
+     <div>
+       <hr>
+       <button outline nbButton status="primary" size="small" (click)="onSubmit(registerForm1.value)"  routerLink="/pages/miscellaneous/UpdateCalendar">Enregistrer</button>
+       <button outline style="margin-left: 10px" class="btn btn-secondary" nbButton type="reset" size="small" (click)="onReset()">Annuler</button>
+     </div>
+
+
+   </form>
+ </nb-card-body>
+ </nb-card>

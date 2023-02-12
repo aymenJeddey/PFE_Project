@@ -1,0 +1,113 @@
+<nb-card  >
+  <nb-card-body>
+<nb-tabset >
+  <nb-tab tabTitle="Details du Tier">
+
+
+     <form  [formGroup]="registerForm" >
+      <div class="form-row" >
+
+        <div class="form-group col">
+
+          <label  class="label">Libellé Court </label>
+          <input     class="form-control"  formControlName = "libcou"  name="libcou" fullWidth  required readonly/>
+
+        </div>
+        <div class="form-group col">
+          <label class="label">Libellé Long </label>
+          <input   type="text"  class="form-control" formControlName = "liblon"  name="liblon" fullWidth readonly>
+
+        </div>
+      </div>
+
+            <div class="form-row">
+          <div class="form-group col">
+            <label class="label">Groupe </label>
+            <input   type="text"  class="form-control" formControlName = "group"  name="group" fullWidth readonly>
+
+          </div>
+
+          <div class="form-group col">
+            <label class="label">Role </label>
+          <input   type="text"  class="form-control" formControlName = "role"  name="role" fullWidth readonly>
+
+          </div>
+        </div>
+
+
+
+
+    </form>
+
+
+  </nb-tab>
+  <nb-tab tabTitle="Details du Compte">
+    <form  [formGroup]="registerForm1">
+
+
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Rib</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "rib"  name="rib" fullWidth readonly>
+        </div>
+
+        <div class="form-group col">
+          <label class="label">Solde </label>
+          <input  fullWidth type="number"  class="form-control" formControlName = "solde"  name="solde" fullWidth readonly>
+        </div>
+      </div>
+
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Num Compte </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "numCpt"  name="numCpt" fullWidth readonly>
+        </div>
+
+        <div class="form-group col">
+          <label class="label">Active </label>
+
+          <nb-checkbox  class="form-control" formControlName = "active" onclick="return false;">Active</nb-checkbox>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Type Compte</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "typeAccount"  name="typeAccount" fullWidth readonly>
+
+        </div>
+
+
+
+        <div class="form-group col">
+          <label class="label">Devise </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "currency"  name="currency" fullWidth readonly>
+        </div>
+      </div>
+
+
+
+    </form>
+  </nb-tab>
+  <nb-tab tabTitle="Details du Contrat"  >
+    <div class="row">
+      <div class="col-md-12">
+        <nb-card class="inline-form-card">
+          <nb-card-header>Table d'amortissement</nb-card-header>
+          <nb-card-body>
+            <ng2-smart-table
+              [settings]="settings2"
+              [source]="amortissement"
+              id="table-data"
+            >
+            </ng2-smart-table>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>  </nb-tab>
+</nb-tabset>
+</nb-card-body>
+<nb-card-footer>
+  <button nbButton type="reset" (click)="onReset()">Fermer</button>
+
+</nb-card-footer>
+</nb-card>

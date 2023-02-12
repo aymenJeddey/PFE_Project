@@ -1,0 +1,14 @@
+<nb-card>
+  <nb-card-body>
+    <nb-card>
+      <nb-card-body class="cursor">
+        <ng2-smart-table
+          [settings]="settings"
+          [source]="accountNumber"
+          (custom)="onAccountSelect($event)"
+        >
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>

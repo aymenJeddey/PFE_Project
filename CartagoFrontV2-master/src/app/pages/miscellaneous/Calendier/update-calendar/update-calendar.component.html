@@ -1,0 +1,273 @@
+<nb-card>
+  <nb-card-header>
+    <button nbButton ghost>
+      <nb-icon
+        icon="arrow-back-outline"
+        (click)="open()"
+        style="margin-bottom: 15px"
+        style="margin-left: 10px"
+      ></nb-icon>
+    </button>
+  </nb-card-header>
+  <hr />
+  <nb-card-body>
+    <nb-card>
+      <nb-tabset>
+        <nb-tab tabTitle="General">
+          <form [formGroup]="registerForm">
+            <div class="form-row">
+              <div class="form-group col">
+                <label class="adresse">Description </label>
+                <input
+                  fullWidth
+                  type="text"
+                  class="form-control"
+                  formControlName="description"
+                  fullWidth
+                />
+              </div>
+            </div>
+          </form>
+        </nb-tab>
+
+        <nb-tab tabTitle="Vacances Annuelles">
+          <nb-card>
+            <nb-card-body>
+              <button
+                type="button"
+                outline
+                nbButton
+                status="basic"
+                size="small"
+                style="margin-left: 10px"
+                style="margin-bottom: 15px"
+                routerLink="/pages/miscellaneous/AddAnnual"
+              >
+                Nouveau
+              </button>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <nb-card>
+                    <nb-card-body class="cursor">
+                      <ng2-smart-table
+                        [settings]="settings"
+                        [source]="annuelle"
+                        (edit)="onEditRowSelect($event)"
+                        (delete)="deleteData($event)"
+                      >
+                      </ng2-smart-table>
+                    </nb-card-body>
+                  </nb-card>
+                </div>
+              </div>
+            </nb-card-body>
+          </nb-card>
+        </nb-tab>
+
+        <nb-tab tabTitle="Vacances Exceptionnelles">
+          <nb-card>
+            <nb-card-body>
+              <button
+                type="button"
+                outline
+                nbButton
+                status="basic"
+                size="small"
+                style="margin-left: 10px"
+                style="margin-bottom: 15px"
+                routerLink="/pages/miscellaneous/AddExceptional"
+              >
+                Nouveau
+              </button>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <nb-card>
+                    <nb-card-body class="cursor">
+                      <ng2-smart-table
+                        [settings]="settings1"
+                        [source]="exceptionnelle"
+                        (edit)="onEditRowSelect1($event)"
+                        (delete)="deleteData1($event)"
+                      >
+                      </ng2-smart-table>
+                    </nb-card-body>
+                  </nb-card>
+                </div>
+              </div>
+            </nb-card-body>
+          </nb-card>
+        </nb-tab>
+
+        <nb-tab tabTitle="Vacances Hebdomadaires">
+          <nb-card>
+            <nb-card-body>
+              <button
+                type="button"
+                outline
+                nbButton
+                status="basic"
+                size="small"
+                style="margin-left: 10px"
+                style="margin-bottom: 15px"
+                routerLink="/pages/miscellaneous/AddHebdo"
+              >
+                Nouveau
+              </button>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <nb-card>
+                    <nb-card-body class="cursor">
+                      <ng2-smart-table
+                        [settings]="settings2"
+                        [source]="hebdomadaire"
+                        (edit)="onEditRowSelect2($event)"
+                        (delete)="deleteData2($event)"
+                      >
+                      </ng2-smart-table>
+                    </nb-card-body>
+                  </nb-card>
+                </div>
+              </div>
+            </nb-card-body>
+          </nb-card>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+
+    <hr />
+    <button
+      outline
+      nbButton
+      status="primary"
+      size="small"
+      (click)="onSubmit(registerForm)"
+    >
+      Enregistrer
+    </button>
+    <button
+      outline
+      style="margin-left: 10px"
+      class="btn btn-secondary"
+      nbButton
+      type="reset"
+      size="small"
+      (click)="onReset()"
+    >
+      Annuler
+    </button>
+  </nb-card-body>
+</nb-card>
+
+<!--  <nb-card>
+    <nb-card-header>
+
+    </nb-card-header><hr>
+    <nb-card-body>
+      <form [formGroup]="registerForm" >
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Adresse </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "adresse" fullWidth>
+          </div>
+        </div>
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Téléphone </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "telephone" fullWidth>
+          </div>
+        </div>
+
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Mobile </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "mobile" fullWidth>
+          </div>
+        </div>
+
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Fax </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "fax" fullWidth>
+          </div>
+        </div>
+
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Email </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "email" fullWidth>
+          </div>
+        </div>
+
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Code Postal </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "codepostal" fullWidth>
+          </div>
+        </div>
+
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Commentaire </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "commentaire" fullWidth>
+          </div>
+        </div>
+
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Fonction contact </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "fonctioncontact" fullWidth>
+          </div>
+        </div>
+
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Nom contact </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "contactName" fullWidth>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="label">Language</label>
+            <nb-select  formControlName="language" name="language" class="form-control-file" fullWidth >
+              <nb-option >None</nb-option>
+              <nb-option *ngFor="let item of languageList; let i = index"
+              [value]="item"
+              >{{ item }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+
+        <div class="form-row" >
+
+          <div class="form-group col">
+            <label class="adresse">Formule Politesse </label>
+            <input  fullWidth type="text"  class="form-control" formControlName = "formulePolitesse" fullWidth>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+      </form>
+    </nb-card-body>
+  </nb-card>
+ -->

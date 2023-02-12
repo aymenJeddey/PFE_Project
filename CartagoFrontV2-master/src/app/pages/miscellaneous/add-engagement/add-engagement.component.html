@@ -1,0 +1,217 @@
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="formEngagement">
+      <nb-card class="inline-form-card">
+        <nb-card-header>Détails opération</nb-card-header>
+
+        <nb-card-body>
+          <div class="form-row">
+            <div class="form-group col">
+              <nb-select
+                placeholder="Type Opération"
+                formControlName="typeEngagement"
+                fullWidth
+              >
+                <nb-option value="Immobilier">Immobilier</nb-option>
+                <nb-option value="Auto">Auto</nb-option>
+                <nb-option value="Consommation">Consommation</nb-option>
+              </nb-select>
+            </div>
+            <div class="form-group col">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                placeholder="Contrepartie"
+                (click)="selectTier()"
+                formControlName="tier"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                placeholder="Devise"
+                (click)="selectDevise()"
+                formControlName="devise"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col">
+              <input
+                nbInput
+                placeholder="Date Valeur"
+                [nbDatepicker]="formpicker"
+                formControlName="dateValeur"
+                class="form-control"
+              />
+              <nb-datepicker #formpicker [min]="min"></nb-datepicker>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+
+      <nb-card class="inline-form-card">
+        <br />
+        <nb-card-header>Paramètres échéancier</nb-card-header>
+        <hr />
+        <nb-card-body>
+          <div class="form-row">
+            <div class="form-group col">
+              <input
+                nbInput
+                placeholder="Date Echéance"
+                [nbDatepicker]="formpicker1"
+                formControlName="dateEch"
+                class="form-control"
+              />
+              <nb-datepicker #formpicker1></nb-datepicker>
+            </div>
+            <div class="form-group col">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                placeholder="Nombre de Jours"
+                formControlName="nbrJour"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col">
+              <nb-select
+                fullWidth
+                placeholder="Type Annuite"
+                formControlName="typeAnnuite"
+              >
+                <nb-option value="InFine">InFine</nb-option>
+                <nb-option value="Variable">Variable</nb-option>
+                <nb-option value="Constante">Constante</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <nb-select
+                fullWidth
+                placeholder="Périodicite Capital"
+                formControlName="periodiciteCapital"
+              >
+                <nb-option value="Mensuelle">Mensuelle</nb-option>
+                <nb-option value="Trimestrielle">Trimestrielle</nb-option>
+                <nb-option value="Semestrielle">Semestrielle</nb-option>
+                <nb-option value="Annuelle">Annuelle</nb-option>
+              </nb-select>
+            </div>
+            <div class="form-group col">
+              <input
+                nbInput
+                placeholder="Date Tombée Capital"
+                [nbDatepicker]="formpicker2"
+                formControlName="premierPaymentCapital"
+                class="form-control"
+              />
+              <nb-datepicker #formpicker2></nb-datepicker>
+            </div>
+            <div class="form-group col">
+              <nb-select
+                fullWidth
+                placeholder="Périodicite Intérets"
+                formControlName="periodiciteInteret"
+              >
+                <nb-option value="Mensuelle">Mensuelle</nb-option>
+                <nb-option value="Trimestrielle">Trimestrielle</nb-option>
+                <nb-option value="Semestrielle">Semestrielle</nb-option>
+                <nb-option value="Annuelle">Annuelle</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <input
+                nbInput
+                placeholder="Date Tombée Intérets"
+                [nbDatepicker]="formpicker3"
+                formControlName="premierPaymentInteret"
+                class="form-control"
+              />
+              <nb-datepicker #formpicker3></nb-datepicker>
+            </div>
+          </div>
+          <br />
+        </nb-card-body>
+      </nb-card>
+      <nb-card class="inline-form-card">
+        <nb-card-header>Montants</nb-card-header>
+        <nb-card-body>
+          <div class="form-row">
+            <div class="form-group col">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                placeholder="Montant Nominale"
+                formControlName="montant"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col">
+              <input
+                type="number"
+                nbInput
+                fullWidth
+                placeholder="Taux d'intéret"
+                formControlName="tauxInteret"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <br />
+          <nb-card-header>Modalités de reglement a l'engagement</nb-card-header>
+          <hr />
+
+          <div class="form-row">
+            <div class="form-group col">
+              <input
+                type="number"
+                nbInput
+                fullWidth
+                (click)="selectAccount()"
+                placeholder="Numéro du Compte"
+                formControlName="account"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-body>
+        <button nbButton status="basic" (click)="reset()">Annuler</button>
+        <button
+          nbButton
+          status="primary"
+          (click)="preview()"
+          [disabled]="!formEngagement.valid"
+        >
+          Aperçue
+        </button>
+        <button
+          nbButton
+          status="success"
+          [disabled]="!appercue"
+          (click)="enregistrer()"
+        >
+          Enregistrer
+        </button>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

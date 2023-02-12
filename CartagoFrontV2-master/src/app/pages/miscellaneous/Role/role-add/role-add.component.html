@@ -1,0 +1,27 @@
+
+
+    <nb-card >
+
+      <nb-card-header><div><button nbButton ghost ><nb-icon icon="arrow-back-outline" routerLink="/pages/miscellaneous/Roole" style="margin-bottom: 15px" style="margin-left: 10px"></nb-icon></button></div>
+
+        Ajouter Role</nb-card-header><hr>
+     <nb-card-body>
+       <form  [formGroup]="registerForm"   >
+         <div class="form-row" >
+
+           <div class="form-group col">
+             <label class="label">Role </label>
+             <input  fullWidth type="text"  class="form-control" formControlName = "role"  name="role" >
+           </div>
+
+         </div>
+         <div>
+           <hr>
+           <button outline nbButton status="primary" size="small" (click)="onSubmit(registerForm.value)"  routerLink="/pages/miscellaneous/Roole">Enregistrer</button>
+           <button outline style="margin-left: 10px" class="btn btn-secondary" nbButton type="reset" size="small" (click)="onReset()">Annuler</button>
+         </div>
+
+
+       </form>
+     </nb-card-body>
+     </nb-card>

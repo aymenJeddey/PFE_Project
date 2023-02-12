@@ -1,0 +1,85 @@
+<nb-card >
+
+  <nb-card-header> <button nbButton ghost ><nb-icon icon="arrow-back-outline" routerLink="/pages/miscellaneous/Devise" style="margin-bottom: 15px" style="margin-left: 10px"></nb-icon></button>
+  </nb-card-header><hr>
+  <nb-card-body>
+    <form  [formGroup]="formDevise">
+      <div class="form-row" >
+
+        <div class="form-group col">
+          <label class="label">Nom</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "name"  name="name" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Nom traduit</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "translatedName"  name="translatedName" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Decimal</label>
+          <input  fullWidth type="number"  class="form-control" formControlName = "decimal"  name="decimal" fullWidth>
+        </div>
+      </div>
+
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Nom des decimales </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "decimalName"  name="decimalName" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Quantité </label>
+          <input  fullWidth type="number"  class="form-control" formControlName = "quantity"  name="quantity" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Code interne </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "internalName"  name="internalName" fullWidth>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <nb-checkbox  class="form-control" formControlName = "certain">Certain</nb-checkbox>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Calendrier</label>
+          <nb-select   name="role" class="form-control-file" fullWidth formControlName="calendar">
+            <nb-option >None</nb-option>
+            <nb-option
+            *ngFor="let item of calendar; let i = index"
+             [value]="{ id: calendar[i].id }">{{
+              item.description
+            }}</nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <div class="form-row" >
+
+        <div class="form-group col">
+          <input  fullWidth type="hidden"  class="form-control" formControlName = "id"  name="id" fullWidth>
+        </div>
+      </div>
+
+
+
+        <hr>
+        <button outline nbButton status="primary" size="small"  (click)="onSubmit(formDevise.value)" >Enregistrer</button>
+        <button outline style="margin-left: 10px" class="btn btn-secondary" nbButton type="reset" size="small" (click)="onReset()">Annuler</button>
+
+
+    </form>
+  </nb-card-body>
+  </nb-card>
+
+
+
+
+
+

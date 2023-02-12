@@ -1,0 +1,50 @@
+<nb-card >
+
+  <nb-card-header> <button nbButton ghost ><nb-icon icon="arrow-back-outline" routerLink="/pages/miscellaneous/Employe" style="margin-bottom: 15px" style="margin-left: 10px"></nb-icon></button>
+  </nb-card-header><hr>
+  <nb-card-body>
+    <form  [formGroup]="formEmployee" >
+      <div class="form-row" >
+
+        <div class="form-group col">
+          <label class="label">Prénom</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "firstName"  name="firstName" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Nom</label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "lastName"  name="lastName" fullWidth>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">agence</label>
+          <nb-select  class="form-control-file" fullWidth formControlName="agency">
+            <nb-option >None</nb-option>
+            <nb-option
+            *ngFor="let item of agence" [value]="item.id">{{
+              item.libcou
+            }}</nb-option>
+          </nb-select>
+        </div>
+      </div>
+
+
+
+
+        <hr>
+        <button outline nbButton status="primary" size="small"  (click)="onSubmit()" >Enregistrer</button>
+        <button outline style="margin-left: 10px" class="btn btn-secondary" nbButton type="reset" size="small" (click)="onReset()">Annuler</button>
+
+
+    </form>
+  </nb-card-body>
+  </nb-card>
+
+
+
+
+
+

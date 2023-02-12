@@ -1,0 +1,29 @@
+package com.bfi.engagement.common;
+
+import com.bfi.engagement.model.Amortissement;
+import com.bfi.engagement.model.Engagement;
+
+import java.util.Calendar;
+
+public class PeriodicityIncrement {
+
+    public void increment(Calendar calendar,Amortissement amortissement, Engagement engagement) {
+    	engagement.
+        switch (engagement.getPeriodiciteInteret()) { 
+            case Mensuelle:
+                calendar.add(Calendar.MONTH, 1);
+
+                break;
+            case Trimestrielle:
+                calendar.add(Calendar.MONTH, 3);
+                break;
+            case Semestrielle:
+                calendar.add(Calendar.MONTH, 6);
+                break;
+            case Annuelle:
+                calendar.add(Calendar.YEAR, 1);
+                break;
+        }
+
+    }
+}

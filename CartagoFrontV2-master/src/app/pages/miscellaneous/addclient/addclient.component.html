@@ -1,0 +1,90 @@
+ <nb-card >
+
+  <nb-card-header> <button nbButton ghost ><nb-icon icon="arrow-back-outline" routerLink="/pages/miscellaneous/Client" style="margin-bottom: 15px" style="margin-left: 10px"></nb-icon></button>
+   Ajouter Personne</nb-card-header><hr>
+  <nb-card-body>
+    <form  [formGroup]="registerForm" >
+      <div class="form-row" >
+
+        <div class="form-group col">
+
+          <label  class="label">Libellé Court </label>
+          <input     class="form-control"  formControlName = "libcou"  name="libcou" fullWidth  required/>
+
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Libellé Long </label>
+          <input   type="text"  class="form-control" formControlName = "liblon"  name="liblon" fullWidth>
+
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <nb-checkbox  class="form-control" formControlName = "resident">Resident</nb-checkbox>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Prénom </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "firstName"  name="firstName" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Nom </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "lastName"  name="lastName" fullWidth>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="label">Sexe</label>
+          <nb-select   name="sexe" class="form-control-file" fullWidth formControlName = "gender">
+            <nb-option value="Male" >Male</nb-option>
+            <nb-option value="Female" >Female</nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Date de naissance</label>
+          <input  [nbDatepicker]="datepicker" class="form-control" formControlName = "birthday">
+          <nb-datepicker #datepicker></nb-datepicker>
+        </div>
+      </div>
+
+          <div class="form-row">
+          <div class="form-group col">
+            <label class="label">Groupe</label>
+            <nb-select   name="group" class="form-control-file" fullWidth formControlName = "group">
+              <nb-option >None</nb-option>
+              <nb-option *ngFor="let item of group" [value]="item.id" >{{
+                item.groupName
+              }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="label">Role</label>
+            <nb-select   name="role" class="form-control-file" fullWidth formControlName = "role" >
+              <nb-option >None</nb-option>
+              <nb-option *ngFor="let item of role" [value]="item.id" >{{
+                item.role
+              }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+
+        <hr>
+        <button outline nbButton status="primary" size="small"  (click)="onSubmit()" type="submit">Enregistrer</button>
+        <button outline style="margin-left: 10px" class="btn btn-secondary" nbButton type="reset" size="small" (click)="onReset()">Annuler</button>
+
+
+    </form>
+  </nb-card-body>
+  </nb-card>
+
+

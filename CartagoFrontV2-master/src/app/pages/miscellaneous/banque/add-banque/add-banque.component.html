@@ -1,0 +1,83 @@
+<nb-card >
+
+  <nb-card-header> <button nbButton ghost ><nb-icon icon="arrow-back-outline" routerLink="/pages/miscellaneous/Client" style="margin-bottom: 15px" style="margin-left: 10px"></nb-icon></button>
+   Ajouter Personne</nb-card-header><hr>
+  <nb-card-body>
+    <form  [formGroup]="registerForm">
+      <div class="form-row" >
+
+        <div class="form-group col">
+          <label class="label">Libellé Court </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "libcou"  name="libcou" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Libellé Long </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "liblon"  name="liblon" fullWidth>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <nb-checkbox  class="form-control" formControlName = "resident">Resident</nb-checkbox>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">>Agcent </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "agcent"  name="agcent" fullWidth>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <nb-checkbox  class="form-control" formControlName = "bqloc">Bqloc</nb-checkbox>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Codbct </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "codbct"  name="codbct" fullWidth>
+        </div>
+      </div>
+      <div class="form-row" >
+        <div class="form-group col">
+          <label class="label">Reference </label>
+          <input  fullWidth type="text"  class="form-control" formControlName = "reference"  name="reference" fullWidth>
+        </div>
+      </div>
+
+
+          <div class="form-row">
+          <div class="form-group col">
+            <label class="label">Groupe</label>
+            <nb-select   name="group" class="form-control-file" fullWidth >
+              <nb-option >None</nb-option>
+              <nb-option *ngFor="let item of group" [value]="item.id" >{{
+                item.groupName
+              }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="label">Role</label>
+            <nb-select   name="role" class="form-control-file" fullWidth >
+              <nb-option >None</nb-option>
+              <nb-option *ngFor="let item of role" [value]="item.id" >{{
+                item.role
+              }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+
+        <hr>
+        <button outline nbButton status="primary" size="small"  (click)="onSubmit(registerForm.value)" >Enregistrer</button>
+        <button outline style="margin-left: 10px" class="btn btn-secondary" nbButton type="reset" size="small" (click)="onReset()">Annuler</button>
+
+
+    </form>
+  </nb-card-body>
+  </nb-card>
+
+

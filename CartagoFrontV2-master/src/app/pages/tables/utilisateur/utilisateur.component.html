@@ -1,0 +1,61 @@
+
+
+
+<nb-card>
+
+  <nb-card-body>
+    <h6 align="center" >Utilisateur Détails</h6>
+    <button type="button" outline nbButton status="basic" size="small" style="margin-left: 10px" style="margin-bottom: 15px" routerLink="/pages/layout/utilisateur">
+      Nouveau
+    </button>
+
+    <div class="row">
+      <div class="col-md-12">
+        <nb-card>
+          <nb-card-body class="cursor">
+            <ng2-smart-table   [settings]="settings1" [source]="user" (editConfirm)="editData($event)" (deleteConfirm)="deleteData($event)">
+
+            </ng2-smart-table>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+
+
+<!-- <nb-card>
+
+  <nb-card-body>
+    <h6 align="center" >Role Détails</h6>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <nb-card>
+          <nb-card-body class="cursor">
+            <ng2-smart-table   [settings]="settings" [source]="user" (createConfirm)="onAddRole($event)" (editConfirm)="editRole($event)" (deleteConfirm)="deleteRole($event)">
+
+            </ng2-smart-table>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+ -->
+
+
+<!-- <nb-card>
+  <nb-card-header>
+    Smart Table
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+ -->
+
